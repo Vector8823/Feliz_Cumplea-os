@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reproductor de música interactivo con animaciones elegantes y efectos visuales avanzados.">
+    <meta name="author" content="Tu Nombre">
+    <title>Reproductor de Música Interactivo</title>
+    <link rel="stylesheet" href="SI.CSS">
+</head>
+<body>
+    <!-- Contenedor principal del reproductor -->
+    <div class="player-container">
+        <header class="player-header">
+            <h1>Reproductor de Música Avanzado</h1>
+            <p class="description">Disfruta de una experiencia única con animaciones y efectos visuales.</p>
+        </header>
+
+        <!-- Contenedor de controles y audio -->
+        <div class="audio-player">
+            <audio id="audio" controls>
+                <source src="tu-cancion.mp3" type="audio/mp3">
+                Tu navegador no soporta el formato de audio.
+            </audio>
+        </div>
+
+        <!-- Contenedor para mensajes emergentes -->
+        <div id="messages" class="messages-container">
+            <!-- Mensajes aparecerán aquí dinámicamente -->
+        </div>
+
+        <!-- Contenedor para letras de la canción -->
+        <div id="lyrics" class="lyrics-container">
+            <!-- Letras aparecerán aquí dinámicamente -->
+        </div>
+
+        <!-- Contenedor de barra de progreso -->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Contenedor de control de volumen -->
+        <div class="volume-control">
+            <label for="volume">Volumen:</label>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+        </div>
+
+        <!-- Contenedor de botones de control -->
+        <div class="controls">
+            <button id="prev" class="control-btn">Anterior</button>
+            <button id="playPause" class="control-btn">Reproducir</button>
+            <button id="next" class="control-btn">Siguiente</button>
+        </div>
+    </div>
+
+    <script src="SI.JS"></script>
+</body>
+</html>

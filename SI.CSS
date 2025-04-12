@@ -1,0 +1,162 @@
+/* Reseteo global de márgenes y rellenos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo y configuración de la página */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #2d2d2d, #444444);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  transition: background-color 0.5s ease;
+}
+
+/* Contenedor principal del reproductor */
+.player-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Header del reproductor */
+.player-header h1 {
+  font-size: 36px;
+  color: #f39c12;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.description {
+  font-size: 18px;
+  color: #d3d3d3;
+  font-weight: 300;
+}
+
+/* Contenedor del reproductor de audio */
+.audio-player audio {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Efecto al pasar el ratón sobre el reproductor */
+.audio-player audio:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.6);
+}
+
+/* Mensajes emergentes */
+.messages-container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.message {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f39c12;
+  opacity: 0;
+  animation: messageFade 4s ease-in-out infinite;
+  margin: 10px 0;
+}
+
+@keyframes messageFade {
+  0% { opacity: 0; transform: translateY(-15px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(15px); }
+}
+
+/* Letras de la canción */
+.lyrics-container {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  opacity: 0;
+  animation: lyricAppear 5s ease-in-out infinite;
+}
+
+@keyframes lyricAppear {
+  0% { opacity: 0; transform: translateY(10px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Barra de progreso */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #555;
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #f39c12;
+  width: 0;
+  transition: width 0.1s ease-in-out;
+}
+
+/* Control de volumen */
+.volume-control {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+input[type="range"] {
+  width: 100%;
+  background: linear-gradient(135deg, #ff7f50, #ff6347);
+  border-radius: 10px;
+  outline: none;
+  height: 8px;
+}
+
+input[type="range"]:focus {
+  box-shadow: 0 0 10px #f39c12;
+}
+
+/* Controles del reproductor */
+.controls {
+  margin-top: 20px;
+}
+
+.control-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+  background-color: #e67e22;
+}
+
+.control-btn:active {
+  background-color: #d35400;
+}

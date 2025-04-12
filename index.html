@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔐 Acceso Privado</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #ff8af3;
+      text-shadow: 0 0 8px #ff00c8;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="password"],
+    input[type="text"] {
+      padding: 15px;
+      width: 280px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+      box-shadow: 0 0 10px #888;
+    }
+
+    .toggle-password {
+      margin-top: -10px;
+      font-size: 0.9rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .toggle-password:hover {
+      color: #ffffff;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.2s, background 0.4s;
+      box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #ff4b2b, #ff416c);
+    }
+
+    #mensaje {
+      margin-top: 15px;
+      color: #ffbebe;
+      font-size: 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    #verBtn {
+      display: none;
+      margin-top: 20px;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      box-shadow: 0 4px 15px rgba(0, 201, 255, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      input, button {
+        font-size: 1rem;
+        width: 90%;
+        max-width: 300px;
+      }
+    }
+
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-1000px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bubbles">
+    <div class="bubble" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="bubble" style="left: 40%; animation-delay: 2s;"></div>
+    <div class="bubble" style="left: 60%; animation-delay: 4s;"></div>
+    <div class="bubble" style="left: 80%; animation-delay: 6s;"></div>
+    <div class="bubble" style="left: 50%; animation-delay: 1s;"></div>
+  </div>
+
+  <h1>🔐 Acceso privado</h1>
+
+  <div class="input-group">
+    <input type="password" id="clave" placeholder="Ingresa la contraseña" />
+    <span class="toggle-password" onclick="togglePassword()">👁 Mostrar / Ocultar</span>
+  </div>
+
+  <button onclick="verificar()">Ingresar</button>
+
+  <div id="mensaje"></div>
+
+  <button id="verBtn" onclick="window.location.href='A1.HTML'">👁 Ver</button>
+
+  <script>
+    function verificar() {
+      const claveCorrecta = "26/02/2025";
+      const claveIngresada = document.getElementById("clave").value;
+      const mensaje = document.getElementById("mensaje");
+      const verBtn = document.getElementById("verBtn");
+
+      if (claveIngresada === claveCorrecta) {
+        mensaje.textContent = "";
+        verBtn.style.display = "inline-block";
+      } else {
+        mensaje.textContent = "❌ Pida la contraseña por WhatsApp, ya tienes mi número.";
+        verBtn.style.display = "none";
+      }
+    }
+
+    function togglePassword() {
+      const clave = document.getElementById("clave");
+      clave.type = clave.type === "password" ? "text" : "password";
+    }
+  </script>
+
+</body>
+</html>
